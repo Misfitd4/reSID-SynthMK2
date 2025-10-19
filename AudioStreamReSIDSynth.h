@@ -28,7 +28,7 @@ private:
     uint32_t delay;
   };
 
-  static constexpr uint32_t kQueueSize = 256;
+  static constexpr uint32_t kQueueSize = 4096;
   static constexpr uint32_t kQueueMask = kQueueSize - 1;
 
   void applyPendingEvents(int32_t cyclesElapsed);

@@ -11,6 +11,8 @@ plain Teensy 4.1 with the PJRC Audio Shield.
   - Teensy's built-in USB device port (`usbMIDI`),
   - the USB host port (`USBHost_t36`), and
   - a DIN connection wired to `Serial8` (31250 baud).
+- Optional FDIS stream ingest over the USB serial console (`Serial`) to replay
+  captured SID bus activity in real time.
 
 ## Folder layout
 
@@ -38,4 +40,3 @@ routing are intentionally simple to leave room for your own extensions.
 - MIDI CC mapping for filter cutoff/resonance and waveform selection.
 - Preset storage using Teensy's flash or an SD card.
 - Optional re-introduction of fmOPL for hybrid SID/OPL voices.
-

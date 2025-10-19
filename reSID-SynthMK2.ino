@@ -5,6 +5,7 @@
 #include <math.h>
 
 #include "AudioStreamReSIDSynth.h"
+#include "FdisStream.h"
 
 // Audio graph
 AudioStreamReSIDSynth sidVoice;
@@ -147,6 +148,9 @@ void processSerialMidi() {
 }
 
 void setup() {
+  Serial.begin(2000000);
+  delay(10);
+
   AudioMemory(128);
   sidVoice.init();
   sidVoice.setChipModel(false);  // default to 6581
@@ -158,6 +162,8 @@ void setup() {
 
   usbHost.begin();
   Serial8.begin(31250);
+
+  FdisStream::begin(&sidVoice);
 }
 
 void loop() {
@@ -165,4 +171,5 @@ void loop() {
   processUsbHostMidi();
   processUsbDeviceMidi();
   processSerialMidi();
+  FdisStream::poll(Serial);
 }
